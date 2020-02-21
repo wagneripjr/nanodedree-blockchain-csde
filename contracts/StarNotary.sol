@@ -6,6 +6,14 @@ import "../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721.sol"
 // StarNotary Contract declaration inheritance the ERC721 openzeppelin implementation
 contract StarNotary is ERC721 {
 
+    function name() public pure returns (string memory){
+        return "udacity-wip5";
+    }
+
+    function symbol() public pure returns (string memory){
+        return "wip5";
+    }
+
     // Star data
     struct Star {
         string name;
@@ -21,7 +29,6 @@ contract StarNotary is ERC721 {
     // mapping the TokenId and price
     mapping(uint256 => uint256) public starsForSale;
 
-    
     // Create Star using the Struct
     function createStar(string memory _name, uint256 _tokenId) public { // Passing the name and tokenId as a parameters
         Star memory newStar = Star(_name); // Star is an struct so we are creating a new Star
